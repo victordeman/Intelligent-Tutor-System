@@ -1,0 +1,26 @@
+# Data directories (not tracked)
+data/raw/*
+data/processed/*
+data/results/*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.csv
+*.bak

@@ -1,0 +1,6 @@
+input_columns:
+  - learner_id
+  - task_id
+  - correct
+  - time_spent
+output_path: data/processed/processed_data.csv
