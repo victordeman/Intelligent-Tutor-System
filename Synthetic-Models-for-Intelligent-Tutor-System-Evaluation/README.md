@@ -3,19 +3,47 @@
 This project evaluates Intelligent Tutoring Systems (ITS) for Python/SQL learning using synthetic models: **Bayesian Knowledge Tracing (BKT)**, **Agent-Based Models**, and **Generative AI Models**. It focuses on **learning outcomes** (e.g., code accuracy) and **learning engagement** (e.g., interaction frequency), with engagement data driving learner simulations. The project integrates **Cognitive Load Theory (CLT)** and **Zone of Proximal Development (ZPD)** to optimize ITS performance.
 
 ## Repository Structure
-
-- **src/**: ETL pipeline and utilities.
-  - **etl/**: Extract, transform, load scripts.
-  - **utils/**: Data processing and metrics.
-- **models/**: Model implementations (branches: bkt, agent_based, generative_ai).
-  - **bkt/**: Bayesian Knowledge Tracing.
-  - **agent_based/**: Agent-Based Models.
-  - **generative_ai/**: Generative AI Models.
-- **evaluation/**: Model evaluation, comparison, and visualization.
-- **data/**: Stores raw, processed, and result data (not tracked).
-- **ui/**: Streamlit app for CSV upload and evaluation.
-- **config/**: ETL configuration.
-- **docs/**: User and developer guides, requirements.
+```
+Synthetic-Models-for-Intelligent-Tutor-System-Evaluation/
+├── src/                            # Core scripts for ETL and utilities
+│   ├── etl/                       # ETL pipeline components
+│   │   ├── extract.py             # Extracts data from synthetic CSV
+│   │   ├── transform.py           # Transforms data for model input
+│   │   └── load.py                # Loads processed data for evaluation
+│   └── utils/                     # Utility functions
+│       ├── data_processing.py     # Data preprocessing and validation
+│       └── metrics.py             # Learning outcomes and engagement metrics
+├── models/                         # Model implementations
+│   ├── bkt/                       # Bayesian Knowledge Tracing
+│   │   ├── bkt_model.py           # BKT model definition and training
+│   │   └── simulate_bkt.py        # Simulate learner interactions with BKT
+│   ├── agent_based/               # Agent-Based Models
+│   │   ├── agent_model.py         # Agent model definition
+│   │   └── simulate_agents.py     # Simulate agent-based learner interactions
+│   ├── generative_ai/             # Generative AI Models
+│   │   ├── generative_model.py    # Generative AI model definition
+│   │   └── generate_synthetic.py  # Generate synthetic learner data
+├── evaluation/                     # Evaluation and comparison code
+│   ├── evaluate_models.py         # Evaluates models against tasks
+│   ├── compare_results.py         # Compares performance across models
+│   ├── visualize_results.py       # Visualizes data and results
+│   └── affective_metrics.py       # Affective engagement metrics (e.g., frustration)
+├── data/                           # Data storage (not tracked)
+│   ├── raw/                       # Raw synthetic CSV files
+│   ├── processed/                 # Processed data for models
+│   └── results/                   # Evaluation results
+├── ui/                             # Streamlit user interface
+│   ├── app.py                     # Streamlit app for CSV upload and evaluation
+│   └── config.toml                # Streamlit configuration
+├── config/                         # Configuration files
+│   └── etl_config.yaml            # ETL pipeline configuration
+├── docs/                           # Documentation
+│   ├── user_guide.md              # User instructions for running the app
+│   ├── dev_guide.md               # Developer guide for extending the project
+│   └── requirements.txt           # Project dependencies
+├── README.md                       # Project overview and setup instructions
+└── .gitignore                      # Git ignore file
+```
 
 ## Prerequisites
 
