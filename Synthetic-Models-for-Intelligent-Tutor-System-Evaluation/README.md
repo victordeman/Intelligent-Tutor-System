@@ -55,7 +55,7 @@ Synthetic-Models-for-Intelligent-Tutor-System-Evaluation/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/victordeman/Synthetic-Models-for-Intelligent-Tutor-System-Evaluation.git
+   git clone https://github.com/victordeman/Intelligent-Tutor-System.git
    cd Synthetic-Models-for-Intelligent-Tutor-System-Evaluation
    ```
 
