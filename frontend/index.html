@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Tutor System Evaluation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Hero Section -->
+    <div id="hero" class="hero-gradient text-white min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0" id="vanta-globe"></div>
+        <div class="container mx-auto px-6 z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Intelligent Tutor System Evaluation</h1>
+                <p class="text-xl md:text-2xl mb-10 opacity-90">Evaluate learning outcomes and engagement using advanced synthetic models</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#features" class="bg-white text-indigo-700 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                        Learn More
+                    </a>
+                    <a href="#demo" class="border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+                        Try Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Advanced Evaluation Models</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Our platform leverages cutting-edge synthetic models to assess tutor system effectiveness</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- BKT Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="bar-chart-2" class="text-indigo-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Bayesian Knowledge Tracing</h3>
+                    <p class="text-gray-600 mb-4">Track student knowledge states over time with probabilistic modeling of learning.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Personalized learning paths</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Skill mastery prediction</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Agent-Based Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="users" class="text-purple-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Agent-Based Models</h3>
+                    <p class="text-gray-600 mb-4">Simulate diverse learner behaviors and interactions with the tutoring system.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Behavioral pattern analysis</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Adaptive difficulty scaling</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Generative AI Card -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="cpu" class="text-pink-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Generative AI</h3>
+                    <p class="text-gray-600 mb-4">Create realistic student responses and evaluate tutor feedback quality.</p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Natural language processing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="text-green-500 mr-2 w-4 h-4"></i>
+                            <span>Automated feedback generation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Interactive Evaluation Demo</h2>
+                <p class="text-xl text-gray-600">Upload your data or try with our sample dataset to see the models in action</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-10">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Upload Your Data</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Select CSV File</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-indigo-500 transition-all">
+                                    <i data-feather="upload" class="w-12 h-12 text-gray-400 mx-auto mb-3"></i>
+                                    <p class="text-gray-500 mb-2">Drag & drop your CSV file here</p>
+                                    <p class="text-sm text-gray-400 mb-4">or</p>
+                                    <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition-all">
+                                        Browse Files
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">Select Evaluation Model</label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <button class="bg-indigo-100 text-indigo-700 px-4 py-3 rounded-lg font-medium transition-all hover:bg-indigo-200">
+                                        BKT
+                                    </button>
+                                    <button class="bg-purple-100 text-purple-700 px-4 py-3 rounded-lg font-medium transition-all hover:bg-purple-200">
+                                        Agent
+                                    </button>
+                                    <button class="bg-pink-100 text-pink-700 px-4 py-3 rounded-lg font-medium transition-all hover:bg-pink-200">
+                                        Generative AI
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center">
+                                <i data-feather="play" class="mr-2 w-5 h-5"></i>
+                                Run Evaluation
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 bg-gray-50 p-10 border-t md:border-t-0 md:border-l border-gray-200">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Sample Results</h3>
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-medium text-gray-700">Learning Outcomes</h4>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">+12%</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-green-500 rounded-full" style="width: 72%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-medium text-gray-700">Engagement Metrics</h4>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">8.4/10</span>
+                            </div>
+                            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 84%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="font-medium text-gray-700">Affective State</h4>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Moderate</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-1/3">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-indigo-600">23%</div>
+                                        <div class="text-xs text-gray-500">Frustration</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/3">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-green-600">62%</div>
+                                        <div class="text-xs text-gray-500">Confidence</div>
+                                    </div>
+                                </div>
+                                <div class="w-1/3">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-blue-600">15%</div>
+                                        <div class="text-xs text-gray-500">Confusion</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Intelligent Tutor Evaluation</h3>
+                    <p class="text-gray-400">Advanced synthetic models for assessing learning outcomes and engagement in intelligent tutoring systems.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Models</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Bayesian Knowledge Tracing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Agent-Based Models</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Generative AI</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">API Reference</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="github" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i data-feather="linkedin" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 Intelligent Tutor System Evaluation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Vanta.js globe
+        VANTA.GLOBE({
+            el: "#vanta-globe",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x667eea,
+            backgroundColor: 0x0,
+            size: 0.8
+        });
+
+        // Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
