@@ -1,81 +1,72 @@
-import sys
+from flask import Flask, request, jsonify, send_from_directory
 import os
-
-# Dynamically add the project root to Python's path
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-
-import streamlit as st
+import pandas as pd
 from src.etl.extract import extract_data
 from src.etl.transform import transform_data
 from src.etl.load import load_data
 from evaluation.evaluate_models import evaluate_model
-from evaluation.compare_results import compare_models
-from evaluation.visualize_results import visualize_results
 from evaluation.affective_metrics import calculate_affective_metrics
+from evaluation.visualize_results import visualize_results
 
-def main():
-    st.title("Synthetic Models for ITS Evaluation")
-    
-    uploaded_file = st.file_uploader("Upload Synthetic CSV", type="csv")
-    
-    if uploaded_file is not None:
-        # ETL Pipeline
-        df = extract_data(uploaded_file)
-        if df is not None:
-            df = transform_data(df)
-            if load_data(df):
-                st.success("Data processed successfully!")
-                
-                # Multi-select for models (your enhancement)
-                selected_models = st.multiselect(
-                    "Select Models to Evaluate", 
-                    ["BKT", "Agent-Based", "Generative AI"], 
-                    default=["BKT"]
-                )
-                
-                if st.button("Evaluate and Compare") and selected_models:
-                    all_results = []
-                    for model_type in selected_models:
-                        try:
-                            result = evaluate_model(model_type, df)
-                            all_results.append(result)
-                        except Exception as e:
-                            st.error(f"Error evaluating {model_type}: {e}")
-                    
-                    if all_results:
-                        # Display individual results
-                        for result in all_results:
-                            st.write(result)
-                        
-                        # Affective metrics (once, since data is shared)
-                        st.write(calculate_affective_metrics(df))
-                        
-                        # Visualize all results
-                        visualize_results(all_results)
-                        
-                        # Display plot if exists
-                        plot_path = "data/results/results_plot.png"
-                        if os.path.exists(plot_path):
-                            st.image(plot_path)
-                        else:
-                            st.warning("Plot generation failed—check console for errors.")
-                        
-                        # Compare models
-                        comparison = compare_models(all_results)
-                        st.subheader("Model Comparison (Sorted by Outcomes)")
-                        st.dataframe(comparison)
-                    else:
-                        st.warning("No results to display. Check model evaluations.")
-                elif not selected_models:
-                    st.warning("Please select at least one model.")
-            else:
-                st.error("Failed to load processed data.")
-        else:
-            st.error("Failed to extract or transform data.")
-    else:
-        st.info("Please upload a CSV file to get started.")
+app = Flask(__name__, static_folder='frontend/public', template_folder='frontend/public')
 
-if __name__ == "__main__":
-    main()
+# Serve the HTML frontend
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+# Serve static files (CSS, JS, etc.)
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory(app.static_folder, path)
+
+# Serve result files (e.g., plots)
+@app.route('/data/results/<path:filename>')
+def serve_results(filename):
+    return send_from_directory('data/results', filename)
+
+# API endpoint for CSV upload and model evaluation
+@app.route('/api/evaluate', methods=['POST'])
+def evaluate():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file uploaded'}), 400
+    
+    file = request.files['file']
+    model_type = request.form.get('model', 'BKT')
+    
+    # Save uploaded file temporarily
+    upload_path = 'data/raw/uploaded_data.csv'
+    os.makedirs(os.path.dirname(upload_path), exist_ok=True)
+    file.save(upload_path)
+    
+    # Process data through ETL pipeline
+    df = extract_data(upload_path)
+    if df is None:
+        return jsonify({'error': 'Invalid CSV file'}), 400
+    
+    df = transform_data(df)
+    if df is None:
+        return jsonify({'error': 'Data transformation failed'}), 400
+    
+    load_data(df, 'data/processed/processed_data.csv')
+    
+    # Evaluate model
+    results = evaluate_model(model_type, df)
+    affective_metrics = calculate_affective_metrics(df)
+    
+    # Generate visualization
+    visualize_results([results], output_path='data/results/results_plot.png')
+    
+    # Prepare response
+    response = {
+        'model': model_type,
+        'outcomes': results['outcomes'],
+        'engagement': results['engagement'],
+        'affective': affective_metrics,
+        'plot': '/data/results/results_plot.png'
+    }
+    
+    return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
