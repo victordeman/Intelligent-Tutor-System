@@ -66,7 +66,7 @@ Synthetic-Models-for-Intelligent-Tutor-System-Evaluation/
 
 3. Run the Streamlit app from root:
    ```bash
-   streamlit run ui/app.py
+  
    ```
 
 ## Usage
